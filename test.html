@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Pakistan - Watch TV Shows Online, Watch Movies Online</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        nav {
+            display: flex;
+            height: 90px;
+            margin: auto;
+            justify-content: space-between;
+            max-width: 1200px;
+            padding: 0 20px;
+            align-items: center;
+        }
+
+        nav img {
+            width: 128px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .btn {
+            padding: 5px 12px;
+            font-weight: bold;
+            cursor: pointer;
+            color: white;
+            border-radius: 4px;
+        }
+
+        .btn-red, .btn.red-sm {
+            background-color: #E50914;
+            color: white;
+            border: none;
+        }
+
+        .btn-red {
+            padding: 12px 24px;
+            font-size: 18px;
+        }
+
+        .main {
+            height: 70vh;
+            position: relative;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(asset/images/1bg.jpg);
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero {
+            color: white;
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .hero > :nth-child(1) {
+            font-weight: 900;
+            font-size: 36px;
+        }
+
+        .hero > :nth-child(2) {
+            font-weight: 400;
+            font-size: 20px;
+        }
+
+        .hero > :nth-child(3) {
+            font-weight: 400;
+            font-size: 18px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+            max-width: 500px;
+            padding: 0 15px;
+        }
+
+        .hero-buttons input {
+            height: 50px;
+            padding: 0 15px;
+            font-size: 16px;
+            border-radius: 4px;
+            outline: none;
+            background-color: rgba(23, 23, 23, 0.8);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            width: 100%;
+        }
+
+        .separation {
+            height: 8px;
+            background-color: #222;
+        }
+
+        .first {
+            display: flex;
+            flex-direction: column;
+            padding: 40px 20px;
+            justify-content: center;
+            align-items: center;
+            max-width: 1200px;
+            margin: auto;
+            text-align: center;
+            gap: 20px;
+        }
+
+        .first > div :nth-child(1) {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .first > div :nth-child(2) {
+            font-size: 18px;
+        }
+
+        .SecImg {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .SecImg img {
+            width: 100%;
+            position: relative;
+            z-index: 10;
+        }
+
+        .SecImg video {
+            position: absolute;
+            top: 20%;
+            left: 13%;
+            width: 74%;
+        }
+
+        .faq {
+            padding: 40px 20px;
+            background-color: black;
+            color: white;
+        }
+
+        .faq h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+
+        .faqbox {
+            display: flex;
+            cursor: pointer;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            font-size: 18px;
+            max-width: 900px;
+            margin: 15px auto;
+            background-color: #2d2d2d;
+        }
+
+        .faqbox:hover {
+            background-color: #414141;
+        }
+
+        .faqbox svg {
+            filter: invert(1);
+            width: 24px;
+            height: 24px;
+        }
+
+        footer {
+            color: white;
+            max-width: 1200px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        footer .questions {
+            padding-bottom: 20px;
+        }
+
+        .footer {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .footer-item {
+            display: flex;
+            gap: 15px;
+            flex-direction: column;
+        }
+
+        .footer a {
+            font-size: 14px;
+            color: #b3b3b3;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Desktop view ke liye Media Query */
+        @media (min-width: 968px) {
+            .first {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+                padding: 70px 50px;
+            }
+
+            .first.second {
+                flex-direction: row-reverse;
+            }
+
+            .hero > :nth-child(1) {
+                font-size: 48px;
+            }
+
+            .hero-buttons {
+                flex-direction: row;
+                max-width: 600px;
+            }
+
+            .footer {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+        <nav>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix Logo">
+            <button class="btn red-sm">Sign In</button>
+        </nav>
+        <div class="hero">
+            <span>Unlimited movies, TV</span>
+            <span>shows and more</span>
+            <span>Starts at Rs 250. Cancel anytime.</span>
+            <div class="hero-buttons">
+                <input type="text" placeholder="Email Address">
+                <button class="btn btn-red">Get Started &gt;</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="separation"></div>
+    
+    <section class="first">
+        <div>
+            <span>Enjoy on your own TV</span>
+            <span>Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</span>
+        </div>
+        <div class="SecImg">
+            <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png" alt="">
+            <video src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-in-0819.m4v" controls autoplay loop muted></video>
+        </div>
+    </section>
+
+    <div class="separation"></div>
+
+    <section class="first second">
+        <div class="SecImg">
+            <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/mobile-0819.jpg" alt="">
+        </div>
+        <div>
+            <span>Download your shows to watch offline</span>
+            <span>Save your favourite easily and always have something to watch.</span>
+        </div>
+    </section>
+
+    <div class="separation"></div>
+
+    <section class="first">
+        <div>
+            <span>Watch Everywhere</span>
+            <span>Stream unlimited movies and TV shows on phone, tablet, laptop and TV.</span>
+        </div>
+        <div class="SecImg">
+            <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png" alt="">
+            <video src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-devices-in.m4v" controls autoplay loop muted></video>
+        </div>
+    </section>
+
+    <div class="separation"></div>
+
+    <section class="first second">
+        <div class="SecImg">
+            <img src="https://thumbs.dreamstime.com/b/children-watching-shocking-television-programming-23271560.jpg?w=992" alt="">
+        </div>
+        <div>
+            <span>Create profiles for kids</span>
+            <span>Send children on adventures with their favourite characters in a space made just for them—free with your membership.</span>
+        </div>
+    </section>
+
+    <div class="separation"></div>
+
+    <section class="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faqbox">
+            <span>What is Netflix?</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 4V20" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M4 12H20" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+        <div class="faqbox">
+            <span>How much does Netflix cost?</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 4V20" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M4 12H20" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+        <div class="faqbox">
+            <span>Where can I watch?</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 4V20" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M4 12H20" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+        <div class="faqbox">
+            <span>How do I cancel?</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 4V20" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M4 12H20" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+        <div class="faqbox">
+            <span>What can I watch on Netflix?</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 4V20" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M4 12H20" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+        <div class="faqbox">
+            <span>Is Netflix good for kids?</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 4V20" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M4 12H20" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+    </section>
+
+    <div class="separation"></div>
+
+    <footer>
+        <div class="questions">QUESTIONS? CALL 000-800-919-1694</div>
+        <div class="footer">
+            <div class="footer-item">
+                <a href="#">Help Centre</a>
+                <a href="#">Cookie Preferences</a>
+                <a href="#">Jobs</a>
+                <a href="#">Legal Notices</a>
+            </div>
+            <div class="footer-item">
+                <a href="#">Account</a>
+                <a href="#">Ways to Watch</a>
+                <a href="#">Corporate Information</a>
+                <a href="#">Only on Netflix</a>
+            </div>
+            <div class="footer-item">
+                <a href="#">FAQ</a>
+                <a href="#">Investor Relations</a>
+                <a href="#">Privacy</a>
+                <a href="#">Netflix Pakistan</a>
+            </div>
+            <div class="footer-item">
+                <a href="#">Terms of Use</a>
+                <a href="#">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
